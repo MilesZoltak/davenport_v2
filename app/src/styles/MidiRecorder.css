@@ -1,0 +1,19 @@
+.midi-recorder {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh; /* Full height of the viewport */
+    overflow: hidden; /* Ensure no overflow issues */
+}
+
+.piano-scroll {
+    flex-grow: 1; /* Take up all remaining vertical space above the piano */
+    display: flex;
+    width: 100%;
+    background-color: lightgray; /* Default background for scroll */
+}
+
+.piano {
+    flex-shrink: 0; /* Prevent the piano from shrinking */
+    height: 150px; /* Fixed height of the piano */
+}

@@ -1,0 +1,42 @@
+.piano-scroll {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Scroll takes the full height of the container */
+    background-color: lightgray; /* Optional background */
+    overflow: hidden; /* Prevent overflow */
+}
+
+.white-lanes {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%; /* White lanes take the full height of the scroll */
+}
+
+.white-lane {
+    position: absolute;
+    height: 100%;
+    /* outline: 1px solid black; Outline instead of border */
+}
+
+.white-lane.pressed {
+    background-color: blue; /* Highlight pressed white lanes */
+    border-right: 1px solid blue;
+}
+
+.black-lanes {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%; /* Black lanes are shorter than white lanes */
+    z-index: 1; /* Layer black lanes above white lanes */
+}
+
+.black-lane {
+    position: absolute;
+    height: 100%;
+}
+
+.black-lane.pressed {
+    background-color: blue; /* Highlight pressed black lanes */
+}

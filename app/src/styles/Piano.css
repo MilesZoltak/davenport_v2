@@ -1,0 +1,56 @@
+/* Overall Piano Container */
+.piano {
+    position: fixed; /* Fixes the piano to the viewport */
+    bottom: 0;       /* Aligns the piano to the bottom of the viewport */
+    left: 0;         /* Ensures it starts at the left edge */
+    display: flex;
+    width: 100vw;
+    height: calc(100vw / 52 * 6); /* Height of the white keys (8x their width) */
+    z-index: 10;    /* Ensures it sits above other elements, adjust as needed */
+    background-color: white; /* Optional: Ensures the piano has a solid background */
+    box-sizing: border-box; /* Ensure padding and borders are part of the total width */
+}
+
+/* White Keys */
+.white-keys {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.white-key {
+    position: absolute;
+    width: calc(100vw / 52); /* Each white key is 1/52 of the viewport width */
+    height: 100%; 
+    border: 1px solid black; /* Outline instead of border */
+    background: white; /* White key background color */
+}
+
+.white-key.pressed {
+    background: blue; /* Highlight pressed white keys */
+}
+
+/* Black Keys */
+.black-keys {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: calc(100vw / 52 * 6 * 0.6); /* Black keys are 80% the height of white keys */
+    pointer-events: none; /* Pass clicks through to the white keys */
+}
+
+.black-key {
+    position: absolute;
+    height: 100%;
+    z-index: 2;
+    background: black; /* Black key background color */
+    box-sizing: border-box; /* Include border in width calculation */
+    pointer-events: auto; /* Enable interactivity for black keys */
+    border: 1px solid black; /* Right border for separation */
+    border-top: none;
+}
+
+.black-key.pressed {
+    background: blue; /* Highlight pressed black keys */
+}
