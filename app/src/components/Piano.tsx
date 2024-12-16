@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import KeyEvent from '../components/KeyEvent.tsx'
+import KeyEvent from '@/components/KeyEvent.tsx'
 import '@/styles/Piano.css';
 
 interface PianoProps {

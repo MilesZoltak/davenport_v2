@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import KeyEvent from '../components/KeyEvent.tsx'
+import KeyEvent from '@/components/KeyEvent.tsx'
 import '@/styles/MidiRecorder.css';
-import Piano from '../components/Piano';
-import PianoScroll from '../components/PianoScroll';
-import MidiService from '../services/MidiService'; 
+import Piano from '@/components/Piano';
+import PianoScroll from '@/components/PianoScroll';
+import MidiService from '@/services/MidiService'; 
 
 const MidiRecorder: React.FC = () => {
     const [midiService, setMidiService] = useState<MidiService | null>(null);
