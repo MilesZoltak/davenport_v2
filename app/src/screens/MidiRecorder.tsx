@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import KeyEvent from '../components/KeyEvent.tsx'
 import '@/styles/MidiRecorder.css';
 import Piano from '../components/Piano';
 import PianoScroll from '../components/PianoScroll';
+import MidiService from '../services/MidiService'; 
 
 const MidiRecorder: React.FC = () => {
-
+    const [midiService, setMidiService] = useState<MidiService | null>(null);
     const [pianoEvents, setPianoEvents] = useState<Map<number, KeyEvent[]>>(new Map());
 
     const handleKeyPress = (keyIndex: number, pressTime: number) => {
@@ -23,6 +24,7 @@ const MidiRecorder: React.FC = () => {
     
             return newPressedKeys;
         });
+        midiService?.playNote(keyIndex);
     };
     
     const handleKeyRelease = (keyIndex: number, releaseTime: number) => {
@@ -42,8 +44,22 @@ const MidiRecorder: React.FC = () => {
             }
                 return newPianoEvents;
         });
+        midiService?.releaseNote(keyIndex);
     };
-    
+
+    useEffect(() => {
+        const initializeMidiService = async () => {
+            const service = new MidiService();
+            await service.initialize();
+            setMidiService(service); // Set initialized service
+        };
+
+        initializeMidiService();
+    }, []);
+
+    if (!midiService) {
+        return <div>Loading...</div>; // Show a loading state until initialized
+    }
 
     return (
         <div className="midi-recorder">
