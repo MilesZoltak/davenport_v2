@@ -1,19 +1,31 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Disable scrolling globally */
+}
+
 .midi-recorder {
-    display: flex;
-    flex-direction: column;
     width: 100vw;
     height: 100vh; /* Full height of the viewport */
-    overflow: hidden; /* Ensure no overflow issues */
+    position: relative; /* Ensures child elements position themselves relative to this container */
+    background-color: green;
+    overflow: hidden; /* Prevent any child overflow from causing scrolling */
 }
 
 .piano-scroll {
-    flex-grow: 1; /* Take up all remaining vertical space above the piano */
-    display: flex;
-    width: 100%;
-    background-color: lightgray; /* Default background for scroll */
+    height: calc(100vh - (100vw / 52 * 6)); /* Fill all space above the piano */
+    box-sizing: border-box; /* Ensure borders are included in height calculations */
+    overflow: hidden; /* Prevent content within the scroll container from causing overflow */
 }
 
 .piano {
-    flex-shrink: 0; /* Prevent the piano from shrinking */
-    height: 150px; /* Fixed height of the piano */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100vw / 52 * 6); /* Maintain aspect ratio for the piano */
+    box-sizing: border-box; /* Ensure borders don't add extra height */
+    z-index: 10; /* Ensure the piano stays on top */
 }

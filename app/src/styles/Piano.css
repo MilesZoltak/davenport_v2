@@ -1,14 +1,6 @@
 /* Overall Piano Container */
 .piano {
-    position: fixed; /* Fixes the piano to the viewport */
-    bottom: 0;       /* Aligns the piano to the bottom of the viewport */
-    left: 0;         /* Ensures it starts at the left edge */
-    display: flex;
-    width: 100vw;
-    height: calc(100vw / 52 * 6); /* Height of the white keys (8x their width) */
-    z-index: 10;    /* Ensures it sits above other elements, adjust as needed */
     background-color: white; /* Optional: Ensures the piano has a solid background */
-    box-sizing: border-box; /* Ensure padding and borders are part of the total width */
 }
 
 /* White Keys */
